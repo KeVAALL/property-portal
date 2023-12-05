@@ -1,0 +1,48 @@
+.properties {
+  max-width: 1170px;
+  margin: 0 auto !important;
+  display: flex !important;
+  place-items: center !important;
+  gap: 50px;
+}
+
+.property-city {
+  margin-bottom: 30px;
+  position: relative;
+}
+.property-box {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  height: auto;
+}
+.property-box img {
+  height: 300px;
+  width: 100%;
+  transition: all 0.8s;
+}
+.property-box img:hover {
+  transform: scale(1.2);
+}
+
+.property-overlay {
+  background: linear-gradient(180deg, hsla(0, 0%, 100%, 0.01), #1d293e);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#1d293e",GradientType=0);
+  bottom: 0px;
+  height: 150px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+}
+.property-overlay .details {
+  bottom: 20px;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+.property-overlay .details h5,
+.property-overlay .details p {
+  color: white;
+}

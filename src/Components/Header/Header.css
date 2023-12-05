@@ -1,0 +1,96 @@
+.top-header {
+  background-color: #00000033 !important;
+  /* box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px !important; */
+  box-shadow: none !important;
+  padding: 15px 20px 15px 30px;
+}
+
+@keyframes header {
+  from {
+    height: 115px;
+    padding: 15px 0px 50px 0px;
+  }
+  to {
+    height: 85px;
+    padding: 5px 0px 20px 0px;
+  }
+}
+
+.header-transparent {
+  background-color: transparent !important;
+  /* height: 110px; */
+  /* color: #000; */
+  /* padding: 10px 0; */
+  padding: 15px 20px 15px 30px;
+  box-shadow: none !important;
+  /* box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px !important; */
+}
+.header-solid {
+  background-color: rgb(255, 255, 255, 0.93) !important;
+  /* color: #000; */
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px !important;
+  /* border-bottom-width: 2px;
+    border-bottom-color: #aeb6bf; */
+  /* transition: all 1s ease-in-out; */
+  padding: 15px 20px 15px 30px;
+  /* animation: header 0.4s ease-in-out; */
+  /* animation-fill-mode: forwards; */
+}
+.header-logo {
+  width: auto;
+  height: 90px;
+  margin-right: 20px;
+  transition: all 0.4s ease-in-out;
+}
+.header-transit {
+  width: auto;
+  height: 60px;
+  margin-right: 20px;
+}
+
+.header-social-icons li {
+  border: 0;
+  display: inline-block;
+  margin: 0 2px;
+  padding: 0;
+  text-align: left;
+  position: relative;
+}
+.header-social-icons li a {
+  position: relative;
+  margin: 0;
+  border: 0;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  color: aliceblue;
+}
+.header-social-icons li .solid-icons {
+  position: relative;
+  margin: 0;
+  border: 0;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+.active-link {
+  background-color: #e8f8f5 !important;
+  color: #2cbfb9 !important;
+  border-radius: 4px;
+}
+.active-link svg {
+  color: #2cbfb9 !important;
+}
+@media only screen and (max-width: 768px) {
+  .header-social-icons {
+    display: none;
+  }
+}

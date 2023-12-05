@@ -1,0 +1,9 @@
+.copyright {
+  background-color: #111111;
+  color: #ffffff;
+  /* border-top: 1px solid hsla(0, 0%, 100%, 0.125); */
+}
+.copyright-divider {
+  padding: 20px;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.125);
+}

@@ -1,0 +1,40 @@
+.choose-us {
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  padding: 50px 41px 30px;
+  position: relative;
+  text-align: center;
+  /* box-shadow: none !important; */
+  transition: all 0.3s ease;
+}
+.choose-us .icon {
+  background-color: #e8f8f5;
+  border-radius: 50%;
+  height: 125px;
+  margin: 0 auto;
+  width: 125px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+.choose-us:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
+}
+.choose-us:hover .icon {
+  background-color: #2cbfb9;
+}
+
+.choose-us .icon .icon-picture {
+  height: 75px;
+}
+
+.choose-us .details {
+  margin-top: 50px;
+}
+@media only screen and (max-width: 968px) {
+  .choose-us {
+    width: 350px;
+  }
+}

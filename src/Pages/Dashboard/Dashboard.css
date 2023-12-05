@@ -1,0 +1,6 @@
+.MuiDrawer-root .MuiPaper-root {
+  /* width: 55px !important; */
+}
+.dashboard-box::-webkit-scrollbar {
+  width: 0px !important;
+}

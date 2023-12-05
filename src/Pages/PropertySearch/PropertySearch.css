@@ -1,0 +1,90 @@
+.property-search {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.property-search-section {
+  width: 100vw !important;
+  height: 60vh !important;
+}
+.property-search-banner {
+  background-image: linear-gradient(
+      0deg,
+      rgba(108, 108, 108, 0.511),
+      rgba(108, 108, 108, 0.511)
+    ),
+    url("../../Images/browse-property/property.png") !important;
+  background-size: cover !important;
+  background-position: center center;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-size: 3rem;
+}
+.property-search-box {
+  align-items: center;
+  background: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  /* margin-top: 50px; */
+  box-shadow: 3.346px 3.716px 22.5px rgba(0, 0, 0, 0.11) !important;
+}
+.property-search-main {
+  display: flex !important;
+  padding: 15px !important;
+  background: #e8f8f5;
+  border-radius: 8px !important;
+  border: 0 !important;
+  align-items: center !important;
+}
+.property-search-main .search-icon {
+  margin-right: 10px !important;
+  color: #7e8ba0 !important;
+}
+.property-search-btn {
+  background: #2cbfb9;
+  color: #fff;
+  border: 1px solid #2cbfb9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 90%;
+  padding: 0;
+  height: 40px;
+  box-shadow: 3.346px 3.716px 22.5px #5aafac38 !important;
+
+  transition: all 0.5s ease;
+}
+.property-search-btn:hover {
+  background: #e8f8f5;
+  color: #2cbfb9;
+}
+.property-search-select-box .MuiInputLabel-root {
+  /* line-height: 2em !important; */
+}
+.property-search-select-box-field {
+  border: 0 !important;
+}
+.property-search-select-box-field .select-icon {
+  color: #5aaface3;
+  font-size: 25px;
+}
+.property-search-select-box-field div {
+  padding: 22px 14px !important;
+}
+.properties-result-filter {
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.properties-result-filter .property-total {
+  color: #2cbfb9;
+}

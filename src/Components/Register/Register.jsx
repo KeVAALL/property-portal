@@ -1,0 +1,208 @@
+import * as React from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Paper from "@mui/material/Paper";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Formik } from "formik";
+import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
+import { AddUserData } from "../../Hooks/User";
+import { Stack } from "@mui/material";
+import { CustomFormGroup, CustomTextField } from "../Common/Common";
+
+function Copyright(props) {
+  return (
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
+      <Link color="inherit" href="https://mui.com/">
+        Your Website
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
+
+// TODO remove, this demo shouldn't need to reset the theme.
+
+const defaultTheme = createTheme();
+
+export default function Register() {
+  const navigate = useNavigate();
+  const { mutate: addUserMutate } = AddUserData();
+
+  const validationSchema = Yup.object({
+    username: Yup.string()
+      .required("User Name is required")
+      .matches(
+        /^[a-zA-Z0-9 ]*$/,
+        "Name can only contain letters, numbers, and a single space"
+      ),
+    password: Yup.string()
+      .required("Password is required")
+      .min(8, "Password must be at least 8 characters")
+      .matches(
+        /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+        "Password must contain at least one letter and one number"
+      ),
+  });
+
+  const formValues = {
+    username: "",
+    password: "",
+  };
+
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <Grid container component="main" sx={{ height: "100vh" }}>
+        <CssBaseline />
+        <Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}
+          sx={{
+            backgroundImage:
+              "url(https://source.unsplash.com/random?wallpapers)",
+            backgroundRepeat: "no-repeat",
+            backgroundColor: (t) =>
+              t.palette.mode === "light"
+                ? t.palette.grey[50]
+                : t.palette.grey[900],
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+          <Box
+            sx={{
+              my: 8,
+              mx: 4,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Sign in
+            </Typography>
+            <Formik
+              initialValues={formValues}
+              validationSchema={validationSchema}
+              onSubmit={(values, { setSubmitting, resetForm }) => {
+                addUserMutate(values);
+                console.log(values);
+              }}
+            >
+              {({
+                values,
+                errors,
+                touched,
+                handleChange,
+                handleBlur,
+                handleSubmit,
+                resetForm,
+                isSubmitting,
+              }) => (
+                <Box
+                  component="form"
+                  onSubmit={(event) => {
+                    event.preventDefault();
+                    handleSubmit();
+                    resetForm();
+                  }}
+                  sx={{
+                    mt: 1,
+                    width: "80%",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "20px",
+                  }}
+                >
+                  <CustomFormGroup
+                    formlabel="Username"
+                    // multiline
+                    star="*"
+                    FormField={
+                      <CustomTextField
+                        label="Username"
+                        name="username"
+                        handleChange={handleChange}
+                        handleBlur={handleBlur}
+                        values={values}
+                        errors={errors}
+                        touched={touched}
+                        type="text"
+                        required={true}
+                      />
+                    }
+                  />
+
+                  <CustomFormGroup
+                    formlabel="Password"
+                    // multiline
+                    star="*"
+                    FormField={
+                      <CustomTextField
+                        label="Password"
+                        name="password"
+                        handleChange={handleChange}
+                        handleBlur={handleBlur}
+                        values={values}
+                        errors={errors}
+                        touched={touched}
+                        type="password"
+                        required={true}
+                      />
+                    }
+                  />
+
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2 }}
+                  >
+                    Register User
+                  </Button>
+                </Box>
+              )}
+            </Formik>
+
+            <Box sx={{ width: "80%" }}>
+              <Stack
+                direction="row"
+                sx={{ display: "flex", justifyContent: "space-between" }}
+              >
+                {/* <Link href="#" variant="body2">
+                  Forgot password?
+                </Link> */}
+                <Link href="/login" variant="body2">
+                  {"Already have an account? Log In"}
+                </Link>
+              </Stack>
+            </Box>
+            {/* <Copyright sx={{ mt: 5 }} /> */}
+          </Box>
+        </Grid>
+      </Grid>
+    </ThemeProvider>
+  );
+}
